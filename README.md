@@ -37,7 +37,7 @@ Windows even identifies such programs by displaying an additional icon in the fo
 </br>
 
 # How can I build such programs?
-Here is a guide for building programs that run with full rights.
+Here is a guide for building programs that run with full administrator rights.
 
 ### Step 1:
 * Create a new folder and save an empty project in this folder.
