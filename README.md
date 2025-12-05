@@ -79,10 +79,11 @@ Here is a guide for building programs that run with full rights.
 </assembly>
 ```
 
-Save file.
+Save file.  
 This removes the user lock and privileges the program.
 
-
+### Step 5:
+Now you need to drag and drop the ```admin.rc``` file onto ```brcc32.exe``` to create the ```admin.res``` resource file for Delphi.
 
 
 
