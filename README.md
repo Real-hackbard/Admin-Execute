@@ -80,7 +80,7 @@ Here is a guide for building programs that run with full rights.
 ```
 
 Save file.  
-This removes the user lock and privileges the program.
+This removes the user lock and privileges the program execution.
 
 ### Step 5:
 Now you need to drag&drop the ```admin.rc``` file onto ```brcc32.exe``` to create the ```admin.res``` resource file for Delphi.
