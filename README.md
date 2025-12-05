@@ -85,5 +85,35 @@ This removes the user lock and privileges the program.
 ### Step 5:
 Now you need to drag&drop the ```admin.rc``` file onto ```brcc32.exe``` to create the ```admin.res``` resource file for Delphi.
 
+### and the last Step:
+Copy this command under your implementation in Unit1.pas.
 
+```pascal
+{..}
+var
+  Form1: TForm1;
+
+implementation
+
+{$R *.dfm}
+{$R 'admin.res'} // import admin execute code
+{$WARNINGS OFF}
+{$WARN SYMBOL_PLATFORM OFF}
+
+{$IFDEF CONDITIONALEXPRESSIONS}
+  {$IF CompilerVersion >= 22}
+    {$DEFINE STRING_IS_UNICODESTRING}
+  {$IFEND}
+{$ENDIF}
+
+{$R-}            // Disable range checking
+{$F-}            // Force Far Calls
+{$I-}            // Switch off I/O error checking
+{$B-}            // Complete Boolean Evaluation Off
+{$Q-}            // Overflow Checking Off
+
+{..}
+```
+
+Once you have done that, the program should always be run with administrator rights on any User-Account.
 
