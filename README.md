@@ -10,6 +10,9 @@
 
 </br>
 
+"Run as Administrator" in computing (like on Windows) means launching an application with elevated system privileges, allowing it to perform tasks normally restricted to system administrators, such as changing system settings, installing software, or accessing protected files, often triggered by a User Account Control (UAC) prompt, while on Wikipedia, "administrator" refers to experienced editors with special tools (delete, block, protect pages) elected by the community, not technical system admins. The term bridges two concepts: granting elevated rights to software (Windows) and granting advanced editorial powers.
+
+
 
 
 
