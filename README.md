@@ -101,7 +101,7 @@ implementation
 {$WARN SYMBOL_PLATFORM OFF}
 
 {$IFDEF CONDITIONALEXPRESSIONS}
-  {$IF CompilerVersion >= 22}
+  {$IF CompilerVersion >= 22}   // It's better if the correct compiler version is listed here; in my case it was version 22.
     {$DEFINE STRING_IS_UNICODESTRING}
   {$IFEND}
 {$ENDIF}
