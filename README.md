@@ -37,7 +37,22 @@ Windows even identifies such programs by displaying an additional icon in the fo
 </br>
 
 # How can I build such programs?
+Here is a guide for building programs that run with full rights.
 
+### Step 1:
+* Create a new folder and save an empty project in this folder.
+
+### Step 2:
+* Copy ```brcc32.exe``` from your Delphi folder into your project.
+* The file is generally located in the "```..\bin\..```" folder of Borland or Embarcadero.
+* If the file isn't there, you'll need to find it, as it's required.
+
+### Step 3:
+* Next, create a new resource file named ```admin.rc```.
+* Copy the following line into this file and save it.
+```pascal
+1 24 "admin.manifest"
+```
 
 
 
