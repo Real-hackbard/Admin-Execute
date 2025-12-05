@@ -83,7 +83,7 @@ Save file.
 This removes the user lock and privileges the program.
 
 ### Step 5:
-Now you need to drag and drop the ```admin.rc``` file onto ```brcc32.exe``` to create the ```admin.res``` resource file for Delphi.
+Now you need to drag&drop the ```admin.rc``` file onto ```brcc32.exe``` to create the ```admin.res``` resource file for Delphi.
 
 
 
