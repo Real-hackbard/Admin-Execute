@@ -12,12 +12,31 @@
 
 "Run as Administrator" in computing (like on Windows) means launching an application with elevated system privileges, allowing it to perform tasks normally restricted to system administrators, such as changing system settings, installing software, or accessing protected files, often triggered by a User Account Control (UAC) prompt, while on Wikipedia, "administrator" refers to experienced editors with special tools (delete, block, protect pages) elected by the community, not technical system admins. The term bridges two concepts: granting elevated rights to software (Windows) and granting advanced editorial powers.
 
+</br>
 
+![admin$](https://github.com/user-attachments/assets/7e4aa6b9-dfa1-441c-94bd-f88d4e9dae54)
 
+</br>
 
+When programs are written that need to access sensitive areas of Windows, the user requires the necessary permissions. These include the registry, system settings, network, firewall, etc. However, if the user is restricted and lacks these permissions, the programs will fail and error messages such as the following will appear:
 
+</br>
 
+![admin privilegs required](https://github.com/user-attachments/assets/2aa2f7be-eb4c-4079-8abc-4276854fee40)
 
+</br>
+
+This problem can be circumvented by granting the program the necessary permissions upon execution. Afterward, the user's access rights are irrelevant; the program has full access to all Windows system functions, regardless of how restricted the user account is.
+
+Windows even identifies such programs by displaying an additional icon in the form of a shield that looks something like this..
+
+</br>
+
+![AdminExe](https://github.com/user-attachments/assets/4518d72a-48c6-4307-accb-b1295e279669)
+
+</br>
+
+# How can I build such programs?
 
 
 
