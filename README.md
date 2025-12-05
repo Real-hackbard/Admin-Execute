@@ -117,3 +117,67 @@ implementation
 
 Once you have done that, the program should always be run with administrator rights on any User-Account.
 
+### You can read the privileges of a Windows user using the following code.
+
+```pascal
+function GetAdminSid: PSID;
+const
+  // known SIDs ... (WinNT.h)
+  SECURITY_NT_AUTHORITY: TSIDIdentifierAuthority = (Value: (0, 0, 0, 0, 0, 5));
+  // known RIDs ... (WinNT.h)
+  SECURITY_BUILTIN_DOMAIN_RID: DWORD = $00000020;
+  DOMAIN_ALIAS_RID_ADMINS: DWORD = $00000220;
+begin
+  Result := nil;
+  AllocateAndInitializeSid(SECURITY_NT_AUTHORITY, 2,
+    SECURITY_BUILTIN_DOMAIN_RID, DOMAIN_ALIAS_RID_ADMINS,
+    0, 0, 0, 0, 0, 0, Result);
+end;
+
+function IsAdmin: LongBool;
+var
+  TokenHandle: THandle;
+  ReturnLength: DWORD;
+  TokenInformation: PTokenGroups;
+  AdminSid: PSID;
+  Loop: Integer;
+begin
+  Result := False;
+  TokenHandle := 0;
+  if OpenProcessToken(GetCurrentProcess, TOKEN_QUERY, TokenHandle) then
+  try
+    ReturnLength := 0;
+    GetTokenInformation(TokenHandle, TokenGroups, nil, 0, ReturnLength);
+    TokenInformation := GetMemory(ReturnLength);
+    if Assigned(TokenInformation) then
+    try
+      if GetTokenInformation(TokenHandle, TokenGroups, TokenInformation,
+        ReturnLength, ReturnLength) then
+      begin
+        AdminSid := GetAdminSid;
+        for Loop := 0 to TokenInformation^.GroupCount - 1 do
+        begin
+          if EqualSid(TokenInformation^.Groups[Loop].Sid, AdminSid) then
+          begin
+            Result := True;
+            Break;
+          end;
+        end;
+        FreeSid(AdminSid);
+      end;
+    finally
+      FreeMemory(TokenInformation);
+    end;
+  finally
+    CloseHandle(TokenHandle);
+  end;
+end;
+
+procedure TForm1.FormCreate(Sender: TObject);
+begin
+  if IsAdmin then
+    Label4.Caption := 'administrator'
+  else
+    Label4.Caption := 'no administrator';
+end;
+```
